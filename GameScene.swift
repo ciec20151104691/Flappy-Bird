@@ -22,12 +22,14 @@ class GameScene: SKScene {
     let world = SKNode()
     var startpoint: CGFloat = 0
     var worldheight: CGFloat = 0
+    let role = SKSpriteNode(imageNamed: "Bird0")
     
     
     override func didMoveToView(view: SKView) {
         addChild(world)
         makebackground()
         makeprospects()
+        makerole()
     }
     
     // MARK: 设置的相关方法
@@ -42,6 +44,12 @@ class GameScene: SKScene {
         startpoint = size.height - background.size.height
         worldheight = background.size.height
         
+    }
+    
+    func makerole(){
+        role.position = CGPoint(x:size.width * 0.2,y:worldheight * 0.4 + startpoint)
+        role.zPosition = picture.role.rawValue
+        world.addChild(role)
     }
     
     func makeprospects() {
