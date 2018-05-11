@@ -30,6 +30,28 @@ class GameScene: SKScene {
         makeprospects()
     }
     
+    // MARK: 设置的相关方法
+    
+    func makebackground() {
+        let background = SKSpriteNode(imageNamed: "Background")
+        background.anchorPoint = CGPoint(x: 0.5, y: 1.0)
+        background.position = CGPoint(x: size.width/2, y: size.height)
+        background.zPosition = picture.background.rawValue
+        world.addChild(background)
+        
+        startpoint = size.height - background.size.height
+        worldheight = background.size.height
+        
+    }
+    
+    func makeprospects() {
+        let prospects = SKSpriteNode(imageNamed: "Ground")
+        prospects.anchorPoint = CGPoint(x: 0, y: 1.0)
+        prospects.position = CGPoint(x: 0, y: startpoint)
+        prospects.zPosition = picture.prospects.rawValue
+        world.addChild(prospects)
+    }
+    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     }
