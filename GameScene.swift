@@ -23,6 +23,8 @@ class GameScene: SKScene {
     var startpoint: CGFloat = 0
     var worldheight: CGFloat = 0
     let role = SKSpriteNode(imageNamed: "Bird0")
+    var lasttime:NSTimeInterval = 0
+    var dt:NSTimeInterval = 0
     
     
     override func didMoveToView(view: SKView) {
@@ -64,8 +66,16 @@ class GameScene: SKScene {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     }
     
-    override func update(currentTime: CFTimeInterval) {
-        
+    override func update(now: CFTimeInterval) {
+        if lasttime>0
+        {
+            dt = now - lasttime
+        }
+        else
+        {
+            dt = 0
+        }
+        lasttime = now
     }
 }
 
